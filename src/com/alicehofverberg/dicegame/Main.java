@@ -34,7 +34,7 @@ public class Main {
             System.out.println(die);
 
             sum1 += die;
-            System.out.println("sum is " + sum1);
+            System.out.println("Score is " + sum1);
 
         }
 
@@ -47,14 +47,17 @@ public class Main {
             System.out.println(die);
 
             sum2 += die;
-            System.out.println("sum is " + sum2);
+            System.out.println("Score is " + sum2);
 
         }
 
         if (sum1 > sum2){
             System.out.println("The winner is! " + player1.name);
 
-        } else {
+        } else if (sum1==sum2){
+            System.out.println("Its a tie!");
+
+        }else {
             System.out.println("The winner is! " + player2.name);
         }
 
