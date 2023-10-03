@@ -7,7 +7,23 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        Random random = new Random(); // Startar switch sats
+        Random random = new Random();
+
+
+        System.out.print("Enter the number of players: ");
+        int numberPlayers = sc.nextInt();
+        sc.nextLine(); // to not skip my next input...
+
+        // an array to store the names of the players
+        String[] playerNames = new String[numberPlayers];
+
+        // for loop to add a name to each player
+        for (int i = 0; i < numberPlayers; i++) {
+            System.out.print("Enter the name of player " + (i + 1) + ": ");
+
+            playerNames[i] = sc.nextLine();
+        }
+
 
         //variables
         int die;
@@ -135,25 +151,10 @@ public class Main {
                 System.out.println("Not a valid number");
         }
     }
-
-    /*TODO- HAR LAGT TILL SÅ ATT MAN VÄLJA ANTAL SPELARE 2 ELLER 3. MEN DET ÄR MYCKET KOD OCH UPPREPNING.
-    TODO- NÄSTA STEG ÄR ATT FÖRSÖKA MINIMERA MÄNGDEN KOD I MAIN
-     */
-
-     */
-
-*/
-     */
-    //belongs to die method System.out.println(die());
-    //            sum += die();
-    //            System.out.println("sum is " + sum);
-    public static int die (){ //method with a die roll
-
-        Random random = new Random();
-        return random.nextInt(6)+1; //the span is 1-6
-
-
-    }
-
 }
+
+    /*TODO- Jag kommer förvara spelarnas namn i en array. då jag slipper skriva (player player1 = new player) för varje spelare
+    Todo-    Nu kan man välja hur många spelare som helst genom en for loop istället för att bara kunna välja från 2 olika alternativ
+    todo- Jag tänker nu att istället för en switch sats så kan jag använda mig av nested for loops för att kunna välja rundor och antal tärningar.
+     */
 
