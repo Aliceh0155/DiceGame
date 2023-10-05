@@ -1,5 +1,6 @@
 package com.alicehofverberg.dicegame;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -33,14 +34,16 @@ public class Main {
         int diceAmount = sc.nextInt();
 
         //loops as many times as dices chosen
-        // for each loop inside the for loop that "throws" the dice for each player in the array
+        // nested for loop that "throws" the dice for each player in the array
         for (int i = 0; i < diceAmount; i++) {
-            for (String playerName : playerNames) {
+            for (int j = 0; j < numberPlayers; j++) {
+
                 die = random.nextInt(6) + 1;
                 // prints out each die roll everytime a player "throws" the die
-                System.out.println(playerName + " rolled a " + die);
+                System.out.println(playerNames[j] + " rolled a " + die);
 
-                playerScores[i] += die;
+                //scores are saved in an array
+                playerScores[j] += die;
 
             }
         }
@@ -49,8 +52,13 @@ public class Main {
         for (int i = 0; i < numberPlayers; i++) {
             System.out.println(playerNames[i] + " total score is : " + playerScores[i]);
 
+
         }
 
+
+        // stream of integers from the array, find the max value and return the int value
+        int highestScore = Arrays.stream(playerScores).max().getAsInt();
+        System.out.println("Winner is: " + highestScore);
 
 
     }
