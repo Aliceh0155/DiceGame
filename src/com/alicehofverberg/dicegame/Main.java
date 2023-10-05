@@ -9,9 +9,12 @@ public class Main {
 
 
 
+        // Variables and objects
         Scanner sc = new Scanner(System.in);
         Random random = new Random();
         int die;
+        int highestScore = 0;
+        String highestScoreName = "";
 
         //Input the amount of players
         System.out.print("Enter the number of players: ");
@@ -45,41 +48,39 @@ public class Main {
                 //scores are saved in an array
                 playerScores[j] += die;
 
+                //updates the variables with the name of the player with the highest score
+                if (playerScores[j] > highestScore) {
+                    highestScore = playerScores[j];
+                    highestScoreName = playerNames[j];
+
+                }
             }
         }
 
         //for loop to print out each player name + their total dice roll score
-        for (int i = 0; i < numberPlayers; i++) {
-            System.out.println(playerNames[i] + " total score is : " + playerScores[i]);
-
-
+        for (int k = 0; k < numberPlayers; k++) {
+            System.out.println(playerNames[k] + " total score is : " + playerScores[k]);
         }
 
 
-        // stream of integers from the array, find the max value and return the int value
-        int highestScore = Arrays.stream(playerScores).max().getAsInt();
-        System.out.println("Winner is: " + highestScore);
+        System.out.println("Winner is: " + highestScoreName + " " + highestScore);
 
 
     }
 }
 
+    /*TODO- Jag kan nu skriva ut vinnaren!!
+    TODO- nör jag använde mig av  stream så kunde jag få ut vinnaren men inte namnet på den spelare
+    TODO- som vann. därför har jag nu gjort variabler för higestscore och higestscoreName för att spara
+    TODO- högsta poäng och tillhörande spelarnamn. i en if sats jämför jag om  spelarens poäng är större än highestscore
+    TODO- och om det är så uppdateras variablen highest score men det nya högsta nummret.
 
-              /*  int highestNumber;
-                if (sum1 > sum2 && sum1 > sum3) {
-                    highestNumber = sum1;
-                } else if (sum2 > sum1 && sum2 > sum3) {
-                    highestNumber = sum2;
-                } else {
-                    highestNumber = sum3;
-                }
-                System.out.println("Winner is: " + highestNumber);
-
-               */
+    TODO- Jag måste hitta en lösning på om flera spelare får samma poäng..
 
 
-    /*TODO- Jag har skapat ytterligare en array för att förvara playerScores.
-    TODO- Jag har tagit bort valet av rundor för att minska antalet problem att lösa och tänker att jag lägger till det
-    TODO- vid ett senare tillfälle när jag har ett fungerande spel först.
-    TODO- Nu måste jag skapa ett sätt att skriva ut vinnaren.
+
+    //for loop to print out each player name + their total dice roll score
+        for (int k = 0; k < numberPlayers; k++) {
+            System.out.println(playerNames[i] + " total score is : " + playerScores[i]);
+        }
      */
