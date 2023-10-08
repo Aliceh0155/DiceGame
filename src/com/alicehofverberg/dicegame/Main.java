@@ -71,7 +71,7 @@ public class Main {
         if (ties > 1) {
             System.out.println("It's a tie");
         } else {
-            // otherwise we only have one winner!
+            // Otherwise we only have one winner!
             System.out.println("Winner is: " + highestScoreName + " " + highestScore);
         }
     }
